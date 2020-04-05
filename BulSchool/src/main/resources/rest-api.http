@@ -1,0 +1,8 @@
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "12341234" }
+
+###
+

@@ -1,0 +1,212 @@
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "12341234" }
+
+<> 2020-03-29T055226.200.json
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "12341234" }
+
+<> 2020-03-29T055048.200.json
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "123456789" }
+
+<> 2020-03-29T055038.500.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "1234567890" }
+
+<> 2020-03-29T055023.500.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{   "email": "bulat@mail.ru",   "password": "1234567890" }
+
+<> 2020-03-29T054832.500.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   {     "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054731.400.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   {     "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054637.400.html
+
+###
+
+GET http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   {     "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054628.405.html
+
+###
+
+GET http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   {     "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054620.405.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   {     "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054542.400.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+[   { "email": "bulat@mail.ru",     "password": "1234567890"   } ]
+
+<> 2020-03-29T054421.400.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T054233.400.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "123456789" }
+
+<> 2020-03-29T054127.400.html
+
+###
+
+POST http://localhost:8080/BulSchool_war/api/login
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T054049.400.html
+
+###
+
+POST http://localhost/BulSchool_war/
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T053914.404.html
+
+###
+
+POST http://http//localhost/BulSchool_war/
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+###
+
+POST http://http//localhost/BulSchool_war/
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+###
+
+POST http://http//localhost/BulSchool_war/
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+###
+
+POST http://localhost/api/login
+Accept: */*
+Content-Type: application/json
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T053723.404.html
+
+###
+
+POST http://localhost/api/login
+Accept: */*
+Cache-Control: no-cache
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T053625.404.html
+
+###
+
+POST http://localhost:80/api/login
+Accept: */*
+Cache-Control: no-cache
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+<> 2020-03-29T053555.404.html
+
+###
+
+POST http://localhost:80/api/login
+Accept: */*
+Cache-Control: no-cache
+
+{ email: "bulat@mail.ru" password: "1234567890" }
+
+###
+
