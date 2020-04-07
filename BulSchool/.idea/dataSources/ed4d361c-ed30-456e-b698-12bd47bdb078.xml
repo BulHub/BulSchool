@@ -21,9 +21,9 @@
       <IntrospectionStateNumber>519</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
-      <Relations>sequence|table|131509|131511|1
+      <Relations>sequence|table|131646|131648|1
+sequence|table|131509|131511|1
 sequence|table|131520|131522|1
-sequence|table|131646|131648|1
 </Relations>
     </database>
     <database id="5" parent="1" name="postgres">
