@@ -1,161 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
+<#include "main-template.ftl"/>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="${rc.getContextPath()}/css/developers.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="icon" type="image/ico" href="https://itvdn.com/Content/img/common/favicon.ico">
-    <script type="text/javascript">
-        function funOnLoad() {
-            swal('${title}', '${message}', '${category}');
-        }
-        window.onload = funOnLoad;
-    </script>
-</head>
-
-<body>
-<nav class="navbar navbar-light navbar-expand-md custom-header">
-    <div class="container-fluid"><a class="navbar-brand" href="#">Bul<span>School</span> </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span
-                class="navbar-toggler-icon"></span></button>
-        <div
-                class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav links">
-                <li class="nav-item" role="presentation"><a class="nav-link"
-                                                            href="#">Chat</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link"
-                                                            href="#">Profile</a>
-                </li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Developers</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                            href="${rc.getContextPath()}/feedback">Feedback<span
-                        class="badge badge-pill badge-primary"></span></a></li>
-            </ul>
-            <ul class="nav navbar-nav ml-auto">
-                <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
-                                        href="#"> <img src="${rc.getContextPath()}/img/avatar.jpg" class="dropdown-image">&nbsp;
-                    <#--${nickname}</a>-->
-                        </a>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item"
-                                                                                  role="presentation"
-                                                                                  href="#">Settings </a><a
-                            class="dropdown-item"
-                            role="presentation"
-                            href="${rc.getContextPath()}/signIn">Logout </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<section class="home-team">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col col-md-8">
-                <div class="sectionTitle text-center">
-                    <h2>Our Professionals </h2>
-                    <p>People without whom you would not see this site. Thanks to them.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-style2 team-card">
-                    <div class="card_img"><img class="img-fluid img-full loaded" src="${rc.getContextPath()}/img/team1.jpg" alt="Team one"
-                                               data-original="img/team1.jpg" data-was-processed="true">
-                        <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
-                                class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-linkedin"></i></a></div>
-                    </div>
-                    <div class="card-block">
-                        <h4 class="card-title">Bulat Bilalov</h4><span>Team leader</span></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-style2 team-card">
-                    <div class="card_img"><img class="img-fluid img-full loaded" src="${rc.getContextPath()}/img/team2.jpg" alt="Team one"
-                                               data-original="img/team1.jpg" data-was-processed="true">
-                        <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
-                                class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-linkedin"></i></a></div>
-                    </div>
-                    <div class="card-block">
-                        <h4 class="card-title">Sky</h4><span>Financial support</span></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-style2 team-card">
-                    <div class="card_img"><img class="img-fluid img-full loaded" src="${rc.getContextPath()}/img/team3.jpg" alt="Team one"
-                                               data-original="img/team1.jpg" data-was-processed="true">
-                        <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
-                                class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-linkedin"></i></a></div>
-                    </div>
-                    <div class="card-block">
-                        <h4 class="card-title">Buddy pie<br></h4><span>Protective support</span></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-style2 team-card">
-                    <div class="card_img"><img class="img-fluid img-full loaded" src="${rc.getContextPath()}/img/team4.jpg" alt="Team one"
-                                               data-original="/img/team1.jpg" data-was-processed="true">
-                        <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
-                                class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
-                                class="fa fa-linkedin"></i></a></div>
-                    </div>
-                    <div class="card-block">
-                        <h4 class="card-title">Mr. Carrot</h4><span>Food Support</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="footer-dark">
-    <footer>
+<#macro content>
+    <section class="home-team">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
-                    </ul>
+            <div class="row justify-content-center">
+                <div class="col col-md-8">
+                    <div class="sectionTitle text-center">
+                        <h2>Our Professionals </h2>
+                        <p>People without whom you would not see this site. Thanks to them.</p>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 item text">
-                    <h3>Description</h3>
-                    <p>Our team is the best in its field. We do everything to make you happy. We are very glad that you
-                        are using our site.</p>
-                </div>
-                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                                class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
-                            href="#"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright">BulSchool © 2020</p>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-style2 team-card">
+                        <div class="card_img"><img class="img-fluid img-full loaded"
+                                                   src="${rc.getContextPath()}/img/team1.jpg" alt="Team one"
+                                                   data-original="img/team1.jpg" data-was-processed="true">
+                            <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
+                                            class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-linkedin"></i></a></div>
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">Bulat Bilalov</h4><span>Team leader</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-style2 team-card">
+                        <div class="card_img"><img class="img-fluid img-full loaded"
+                                                   src="${rc.getContextPath()}/img/team2.jpg" alt="Team one"
+                                                   data-original="img/team1.jpg" data-was-processed="true">
+                            <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
+                                            class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-linkedin"></i></a></div>
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">Sky</h4><span>Financial support</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-style2 team-card">
+                        <div class="card_img"><img class="img-fluid img-full loaded"
+                                                   src="${rc.getContextPath()}/img/team3.jpg" alt="Team one"
+                                                   data-original="img/team1.jpg" data-was-processed="true">
+                            <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
+                                            class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-linkedin"></i></a></div>
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">Buddy pie<br></h4><span>Protective support</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-style2 team-card">
+                        <div class="card_img"><img class="img-fluid img-full loaded"
+                                                   src="${rc.getContextPath()}/img/team4.jpg" alt="Team one"
+                                                   data-original="/img/team1.jpg" data-was-processed="true">
+                            <div class="hover-overlay effect-scale"><a href="#" class="overlay_icon"><i
+                                            class="fa fa-facebook"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-twitter"></i></a><a href="#" class="overlay_icon"><i
+                                            class="fa fa-linkedin"></i></a></div>
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">Mr. Carrot</h4><span>Food Support</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-</body>
+    </section>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Description</h3>
+                        <p>Our team is the best in its field. We do everything to make you happy. We are very glad that
+                            you
+                            are using our site.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
+                                    class="icon ion-social-twitter"></i></a><a href="#"><i
+                                    class="icon ion-social-snapchat"></i></a><a
+                                href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">BulSchool © 2020</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</#macro>
 
-</html>
+<@main name="Developers" nameCSS="developers.css"/>
+
+
