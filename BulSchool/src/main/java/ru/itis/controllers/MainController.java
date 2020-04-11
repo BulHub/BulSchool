@@ -43,7 +43,8 @@ public class MainController {
     }
 
     @GetMapping("/quickSupport")
-    public String getQuickSupport() {
+    public String getQuickSupport(ModelMap modelMap) {
+        Attributes.addSuccessAttributes(modelMap, "Success!");
         return "quickSupport";
     }
 }

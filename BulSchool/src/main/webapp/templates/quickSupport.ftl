@@ -1,36 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<#include "main-template.ftl"/>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Support</title>
-    <link rel="icon" type="image/ico" href="https://itvdn.com/Content/img/common/favicon.ico">
-    <link rel="stylesheet" href="${rc.getContextPath()}/css/quickSupport.css">
-</head>
+<#macro content>
 
-<body>
-<div class="container">
-    <img src="${rc.getContextPath()}/img/bandmember.jpg" alt="Avatar">
-    <p>Hello. How are you today?</p>
-    <span class="time-right">11:00</span>
-</div>
+    <legend></legend>
 
-<div class="container darker">
-    <img src="${rc.getContextPath()}/img/avatar_g2.jpg" alt="Avatar" class="right">
-    <p>Hey! I'm fine. Thanks for asking!</p>
-    <span class="time-left">11:01</span>
-</div>
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="message">Message:</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="message" name="message"
+                              placeholder="(Write your message here)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="sendButton"></label>
+                    <div class="col-md-4">
+                        <button id="sendButton" name="sendButton" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+        </fieldset>
+    </form>
 
-<div class="container">
-    <img src="${rc.getContextPath()}/img/bandmember.jpg" alt="Avatar">
-    <p>Sweet! So, what do you wanna do today?</p>
-    <span class="time-right">11:02</span>
-</div>
+    <div class="my">
+        <img src="${rc.getContextPath()}/img/bandmember.jpg" alt="Avatar">
+        <p>Hello. How are you today?</p>
+        <span class="time-right">11:00</span>
+    </div>
 
-<div class="container darker">
-    <img src="${rc.getContextPath()}/img/avatar_g2.jpg" alt="Avatar" class="right">
-    <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-    <span class="time-left">11:05</span>
-</div>
-</body>
+    <div class="my dar">
+        <img src="${rc.getContextPath()}/img/avatar_g2.jpg" alt="Avatar" class="right">
+        <p>Hey! I'm fine. Thanks for asking!</p>
+        <span class="time-left">11:01</span>
+    </div>
+
+    <div class="my">
+        <img src="${rc.getContextPath()}/img/bandmember.jpg" alt="Avatar">
+        <p>Sweet! So, what do you wanna do today?</p>
+        <span class="time-right">11:02</span>
+    </div>
+
+    <div class="my dar">
+        <img src="${rc.getContextPath()}/img/avatar_g2.jpg" alt="Avatar" class="right">
+        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+        <span class="time-left">11:05</span>
+    </div>
+
+</#macro>
+
+<@main name="Quick Support" nameCSS="quickSupport.css"/>
+
