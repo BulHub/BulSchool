@@ -2,6 +2,7 @@ package ru.itis.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,8 @@ import ru.itis.models.Feedback;
 import ru.itis.services.EmailService;
 import ru.itis.services.FeedbackService;
 import ru.itis.utils.Attributes;
+
+import java.util.UUID;
 
 @Controller
 public class MainController {
@@ -42,9 +45,10 @@ public class MainController {
         return "/feedback";
     }
 
-    @GetMapping("/quickSupport")
-    public String getQuickSupport(ModelMap modelMap) {
+    @GetMapping("/chat")
+    public String getChat(ModelMap modelMap, Model model) {
         Attributes.addSuccessAttributes(modelMap, "Success!");
-        return "quickSupport";
+        model.addAttribute("pageId", UUID.randomUUID().toString());
+        return "chat";
     }
 }

@@ -46,8 +46,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
                                                                 href="${rc.getContextPath()}/feedback">Feedback</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                                href="${rc.getContextPath()}/quickSupport">Quick
-                            Support</a></li>
+                                                                href="${rc.getContextPath()}/chat">Chat</a></li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
