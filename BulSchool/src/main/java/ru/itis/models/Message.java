@@ -16,6 +16,6 @@ import javax.persistence.Table;
 @Table(name = "messages")
 public class Message extends BaseEntity {
 
-    private String pageId;
+    private String email;
     private String text;
 }

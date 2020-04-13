@@ -19,15 +19,15 @@ function sendMessage(email, text) {
 }
 
 // LONG POLLING
-function receiveMessage(pageId) {
+function receiveMessage(email) {
     $.ajax({
-        url: "/BulSchool_war//messages?pageId=" + pageId,
+        url: "/BulSchool_war//messages?email=" + email,
         method: "GET",
         dataType: "json",
         contentType: "application/json",
         success: function (response) {
             $('#messages').first().after('<li>' + response[0]['text'] + '</li>');
-            receiveMessage(pageId);
+            receiveMessage(email);
         }
     })
 }

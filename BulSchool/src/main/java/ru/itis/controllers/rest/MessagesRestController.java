@@ -18,9 +18,9 @@ public class MessagesRestController {
     @PostMapping(path = "/messages", consumes = "application/json", headers = "content-type=application/x-www-form-urlencoded")
     public ResponseEntity<Object> receiveMessage(@RequestBody MessageDto message) {
         // если сообщений с этой или для этой страницы еще не было
-        if (!messages.containsKey(message.getPageId())) {
+        if (!messages.containsKey(message.getEmail())) {
             // добавляем эту страницу в Map-у страниц
-            messages.put(message.getPageId(), new ArrayList<>());
+            messages.put(message.getEmail(), new ArrayList<>());
         }
         // полученное сообщение добавляем для всех открытых страниц нашего приложения
         for (List<MessageDto> pageMessages : messages.values()) {
@@ -40,7 +40,7 @@ public class MessagesRestController {
     // получить все сообщения для текущего запроса
     @SneakyThrows
     @GetMapping("/messages")
-    public ResponseEntity<List<MessageDto>> getMessagesForPage(@RequestParam("pageId") String email) {
+    public ResponseEntity<List<MessageDto>> getMessagesForPage(@RequestParam("email") String email) {
         // получили список сообшений для страницы и заблокировали его
         synchronized (messages.get(email)) {
             // если нет сообщений уходим в ожидание
