@@ -11,7 +11,8 @@ import ru.itis.services.EmailService;
 import ru.itis.services.FeedbackService;
 import ru.itis.utils.Attributes;
 
-import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -46,9 +47,11 @@ public class MainController {
     }
 
     @GetMapping("/chat")
-    public String getChat(ModelMap modelMap, Model model) {
+    public String getChat(ModelMap modelMap, Model model, HttpServletRequest request) {
         Attributes.addSuccessAttributes(modelMap, "Success!");
-        model.addAttribute("pageId", UUID.randomUUID().toString());
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        model.addAttribute("email", email);
         return "chat";
     }
 }

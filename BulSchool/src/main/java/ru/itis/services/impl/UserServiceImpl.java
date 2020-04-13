@@ -13,6 +13,7 @@ import ru.itis.repositories.UserRepository;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean signIn(AuthenticationRequestDto userForm, ModelMap model) {
+    public boolean signIn(AuthenticationRequestDto userForm, ModelMap model, HttpSession session) {
         User user = find(userForm.getEmail());
         if (user == null){
             Attributes.addErrorAttributes(model, "Wrong login or password!");
@@ -59,6 +60,7 @@ public class UserServiceImpl implements UserService {
         }
         if (user.getStatus() == Status.ACTIVE){
             Attributes.addSuccessAttributes(model, "Success!");
+            session.setAttribute("email", user.getEmail());
             return true;
         }
         if (user.getStatus() == Status.INACTIVE){

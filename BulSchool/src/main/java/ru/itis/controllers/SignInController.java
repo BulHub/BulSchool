@@ -10,6 +10,8 @@ import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/signIn")
 public class SignInController {
@@ -28,8 +30,8 @@ public class SignInController {
     }
 
     @PostMapping
-    public String signIn(AuthenticationRequestDto authenticationRequestDto, ModelMap modelMap){
-        if (userService.signIn(authenticationRequestDto, modelMap)){
+    public String signIn(AuthenticationRequestDto authenticationRequestDto, ModelMap modelMap, HttpSession session) {
+        if (userService.signIn(authenticationRequestDto, modelMap, session)) {
             return "developers";
         }else{
             return "/signIn";

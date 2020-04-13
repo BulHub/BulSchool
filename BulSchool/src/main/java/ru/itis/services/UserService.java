@@ -1,16 +1,16 @@
 package ru.itis.services;
 
 import org.springframework.ui.ModelMap;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.models.User;
-import ru.itis.transfer.UserForm;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface UserService {
     void register(User user);
-    boolean signIn(AuthenticationRequestDto userForm, ModelMap modelMap);
+
+    boolean signIn(AuthenticationRequestDto userForm, ModelMap modelMap, HttpSession session);
     boolean confirm(String token);
     List<User> findAll();
     User find(String email);

@@ -13,7 +13,7 @@
                 crossorigin="anonymous"></script>
         <script src="${rc.getContextPath()}/js/chat.js"></script>
     </head>
-    <body onload="sendMessage('${pageId}', 'Login')">
+    <body onload="sendMessage('${email}', 'Login')">
     <div class="form-group">
         <label class="col-md-4 control-label" for="message">Message:</label>
         <div class="col-md-4">
@@ -24,13 +24,13 @@
             <label class="col-md-4 control-label" for="sendButton"></label>
             <div class="col-md-4">
                 <button class="btn btn-primary"
-                        onclick="sendMessage('${pageId}',
+                        onclick="sendMessage('${email}',
                                 $('#message').val())">Send
                 </button>
             </div>
         </div>
 
-        <h1>Ваш идентификатор - ${pageId}</h1>
+        <h1>Ваш идентификатор - ${email}</h1>
         <div>
             <ul id="messages">
 

@@ -40,19 +40,19 @@ public class MessagesRestController {
     // получить все сообщения для текущего запроса
     @SneakyThrows
     @GetMapping("/messages")
-    public ResponseEntity<List<MessageDto>> getMessagesForPage(@RequestParam("pageId") String pageId) {
+    public ResponseEntity<List<MessageDto>> getMessagesForPage(@RequestParam("pageId") String email) {
         // получили список сообшений для страницы и заблокировали его
-        synchronized (messages.get(pageId)) {
+        synchronized (messages.get(email)) {
             // если нет сообщений уходим в ожидание
-            if (messages.get(pageId).isEmpty()) {
-                messages.get(pageId).wait();
+            if (messages.get(email).isEmpty()) {
+                messages.get(email).wait();
             }
         }
 
         // если сообщения есть - то кладем их в новых список
-        List<MessageDto> response = new ArrayList<>(messages.get(pageId));
+        List<MessageDto> response = new ArrayList<>(messages.get(email));
         // удаляем сообщения из мапы
-        messages.get(pageId).clear();
+        messages.get(email).clear();
         return ResponseEntity.ok(response);
     }
 }

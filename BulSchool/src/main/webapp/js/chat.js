@@ -1,6 +1,6 @@
-function sendMessage(pageId, text) {
+function sendMessage(email, text) {
     let body = {
-        pageId: pageId,
+        email: email,
         text: text
     };
 
@@ -12,7 +12,7 @@ function sendMessage(pageId, text) {
         dataType: "json",
         complete: function () {
             if (text === 'Login') {
-                receiveMessage(pageId)
+                receiveMessage(email)
             }
         }
     });
