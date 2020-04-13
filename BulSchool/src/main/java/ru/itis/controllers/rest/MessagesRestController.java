@@ -4,23 +4,31 @@ import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.dto.MessageDto;
+import ru.itis.services.ChatService;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 public class MessagesRestController {
-    private static final Map<String, List<MessageDto>> messages = new HashMap<>();
+    private static ConcurrentHashMap<String, List<MessageDto>> messages = new ConcurrentHashMap<>();
+
+    private final ChatService chatService;
+
+    public MessagesRestController(ChatService chatService) {
+        this.chatService = chatService;
+    }
 
     // получили сообщение от какой либо страницы - мы его разошлем во все другие страницы
     @PostMapping(path = "/messages", consumes = "application/json", headers = "content-type=application/x-www-form-urlencoded")
-    public ResponseEntity<Object> receiveMessage(@RequestBody MessageDto message) {
+    public ResponseEntity<Object> receiveMessage(@RequestBody MessageDto message, HttpSession session) {
+        String email = (String) session.getAttribute("email");
         // если сообщений с этой или для этой страницы еще не было
-        if (!messages.containsKey(message.getEmail())) {
+        if (!messages.containsKey(email)) {
             // добавляем эту страницу в Map-у страниц
-            messages.put(message.getEmail(), new ArrayList<>());
+            messages.put(email, new ArrayList<>());
         }
         // полученное сообщение добавляем для всех открытых страниц нашего приложения
         for (List<MessageDto> pageMessages : messages.values()) {
@@ -29,6 +37,7 @@ public class MessagesRestController {
             synchronized (pageMessages) {
                 // добавляем сообщение
                 pageMessages.add(message);
+                chatService.add(message.toMessage());
                 // говорим, что другие потоки могут воспользоваться этим списком
                 pageMessages.notifyAll();
             }

@@ -126,8 +126,8 @@ sequence|table|140468|140470|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2020-04-12.14:48:27.443</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2201</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2020-04-13.11:58:43.866</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2207</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -232,7 +232,7 @@ sequence|table|140468|140470|1
     <table id="36" parent="22" name="messages">
       <ObjectId>140470</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2197</StateNumber>
+      <StateNumber>2206</StateNumber>
     </table>
     <table id="37" parent="22" name="roles">
       <ObjectId>140481</ObjectId>
@@ -372,16 +372,16 @@ sequence|table|140468|140470|1
       <StateNumber>2197</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="59" parent="36" name="pageid">
-      <Position>5</Position>
+    <column id="59" parent="36" name="text">
+      <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>2197</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="36" name="text">
-      <Position>6</Position>
+    <column id="60" parent="36" name="email">
+      <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>2197</StateNumber>
+      <StateNumber>2206</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="61" parent="36" name="messages_pkey">
