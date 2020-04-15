@@ -53,14 +53,14 @@
                                             aria-expanded="false"
                                             href="#"> <img src="${rc.getContextPath()}/img/avatar.jpg"
                                                            class="dropdown-image">&nbsp;
-                            <#--${nickname}</a>-->
+                            ${nickname}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item"
                                                                                       role="presentation"
                                                                                       href="#">Settings </a><a
                                     class="dropdown-item"
                                     role="presentation"
-                                    href="${rc.getContextPath()}/signIn">Logout </a>
+                                    href="${rc.getContextPath()}/logout">Logout </a>
                         </div>
                     </li>
                 </ul>

@@ -11,11 +11,18 @@ public interface UserService {
     void register(User user);
 
     boolean signIn(AuthenticationRequestDto userForm, ModelMap modelMap, HttpSession session);
+
     boolean confirm(String token);
+
     List<User> findAll();
+
     User find(String email);
+
     void delete(User user);
+
     void add(User user);
+
     void update(User user);
+
     User findByToken(String token);
 }

@@ -54,13 +54,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean signIn(AuthenticationRequestDto userForm, ModelMap model, HttpSession session) {
         User user = find(userForm.getEmail());
-        if (user == null){
+        if (user == null || !passwordEncoder.matches(userForm.getPassword(), user.getPassword())) {
             Attributes.addErrorAttributes(model, "Wrong login or password!");
             return false;
         }
         if (user.getStatus() == Status.ACTIVE){
             Attributes.addSuccessAttributes(model, "Success!");
             session.setAttribute("email", user.getEmail());
+            session.setAttribute("nickname", user.getNickname());
             return true;
         }
         if (user.getStatus() == Status.INACTIVE){

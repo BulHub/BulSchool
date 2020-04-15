@@ -14,4 +14,6 @@ public interface ChatService {
     void add(Message entity);
 
     void update(Message entity);
+
+    List<Message> findByEmail(String email);
 }

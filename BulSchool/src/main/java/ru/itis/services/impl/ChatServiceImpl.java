@@ -42,4 +42,9 @@ public class ChatServiceImpl implements ChatService {
     public void update(Message entity) {
         chatRepository.update(entity);
     }
+
+    @Override
+    public List<Message> findByEmail(String email) {
+        return chatRepository.findByEmail(email);
+    }
 }
