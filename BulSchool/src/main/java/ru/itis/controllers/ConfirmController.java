@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.itis.services.UserService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/token")
 public class ConfirmController {
@@ -20,9 +22,9 @@ public class ConfirmController {
     //FIXME: also need to look at the correct implementation of user (User.class) relationships and roles (Role.class)
 
     @GetMapping("/{token}")
-    public String checkToken(@PathVariable("token") String token){
-        if (userService.confirm(token)) {
-            return "developers";
+    public String checkToken(@PathVariable("token") String token, HttpSession session){
+        if (userService.confirm(token, session)) {
+            return "redirect:/developers";
         }
         return "/signIn";
     }

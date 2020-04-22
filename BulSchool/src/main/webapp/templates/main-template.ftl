@@ -39,7 +39,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link"
                                                                 href="#">Profile</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="#">Courses</a></li>
+                                                                href="${rc.getContextPath()}/main">Courses</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link"
                                                                 href="${rc.getContextPath()}/developers">Developers</a>
                     </li>

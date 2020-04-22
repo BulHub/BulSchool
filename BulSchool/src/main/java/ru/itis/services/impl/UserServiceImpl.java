@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.models.Status;
@@ -77,10 +78,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean confirm(String token) {
+    @Transactional
+    public boolean confirm(String token, HttpSession session) {
         User user = findByToken(token);
         if (user != null) {
+            user.setStatus(Status.ACTIVE);
             userRepository.update(user);
+            session.setAttribute("email", user.getEmail());
+            session.setAttribute("nickname", user.getNickname());
             return true;
         } else {
             return false;

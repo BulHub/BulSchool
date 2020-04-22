@@ -28,10 +28,10 @@ public class User extends BaseEntity implements Serializable {
 
     //FIXME: For table user_roles doesn't implement method save()
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "user_roles",
+//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles;
 
     @Column(length = 500)

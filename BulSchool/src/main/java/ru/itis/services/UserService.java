@@ -12,7 +12,7 @@ public interface UserService {
 
     boolean signIn(AuthenticationRequestDto userForm, ModelMap modelMap, HttpSession session);
 
-    boolean confirm(String token);
+    boolean confirm(String token, HttpSession session);
 
     List<User> findAll();
 

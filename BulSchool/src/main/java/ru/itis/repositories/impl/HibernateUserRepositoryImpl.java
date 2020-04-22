@@ -55,7 +55,6 @@ public class HibernateUserRepositoryImpl implements UserRepository {
         currentSession().update(entity);
     }
 
-//    @Override
 //    public void update(String email, Status status){
 //        Query query = currentSession().createQuery("update User set status = :status"+
 //                " where email = :email");
