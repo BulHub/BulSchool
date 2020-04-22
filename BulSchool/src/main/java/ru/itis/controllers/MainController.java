@@ -79,4 +79,12 @@ public class MainController {
         model.addAttribute("nickname", nickname);
         return "courses";
     }
+
+    @GetMapping("/course-single")
+    public String getCourse(ModelMap modelMap, Model model){
+        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
+        String nickname = (String) session.getAttribute("nickname");
+        model.addAttribute("nickname", nickname);
+        return "course-single";
+    }
 }
