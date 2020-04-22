@@ -95,4 +95,12 @@ public class MainController {
         model.addAttribute("nickname", nickname);
         return "about";
     }
+
+    @GetMapping("/admissions")
+    public String getAdmissions(ModelMap modelMap, Model model){
+        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
+        String nickname = (String) session.getAttribute("nickname");
+        model.addAttribute("nickname", nickname);
+        return "admissions";
+    }
 }

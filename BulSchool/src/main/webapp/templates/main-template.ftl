@@ -41,6 +41,8 @@
                     <li class="nav-item" role="presentation"><a class="nav-link"
                                                                 href="${rc.getContextPath()}/courses">Courses<a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link"
+                                                                href="${rc.getContextPath()}/admissions">Admissions<a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link"
                                                                 href="${rc.getContextPath()}/developers">Developers</a>
                     </li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
