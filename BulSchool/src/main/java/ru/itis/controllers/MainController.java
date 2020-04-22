@@ -64,11 +64,19 @@ public class MainController {
         return "redirect:/signIn";
     }
 
-    @GetMapping("/main")
-    public String getMain(ModelMap modelMap, Model model) {
+    @GetMapping("/home")
+    public String getHome(ModelMap modelMap, Model model) {
         Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
         String nickname = (String) session.getAttribute("nickname");
         model.addAttribute("nickname", nickname);
-        return "index";
+        return "home";
+    }
+
+    @GetMapping("/courses")
+    public String getCourses(ModelMap modelMap, Model model) {
+        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
+        String nickname = (String) session.getAttribute("nickname");
+        model.addAttribute("nickname", nickname);
+        return "courses";
     }
 }

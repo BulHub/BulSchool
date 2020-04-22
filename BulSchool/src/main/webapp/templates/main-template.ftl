@@ -37,9 +37,9 @@
                     class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="#">Profile</a></li>
+                                                                href="${rc.getContextPath()}/home">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/main">Courses</a></li>
+                                                                href="${rc.getContextPath()}/courses">Courses<a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link"
                                                                 href="${rc.getContextPath()}/developers">Developers</a>
                     </li>

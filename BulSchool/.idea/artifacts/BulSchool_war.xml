@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BulSchool:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BulSchool</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="BulSchool-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BulSchool:war exploded" />
+    </root>
+  </artifact>
+</component>
