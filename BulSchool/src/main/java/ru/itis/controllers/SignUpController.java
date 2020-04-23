@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.itis.models.User;
 import ru.itis.services.EmailService;
-import ru.itis.services.RoleService;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
@@ -18,13 +17,11 @@ public class SignUpController {
 
     private final UserService userService;
     private final EmailService emailService;
-    private final RoleService roleService;
 
     @Autowired
-    public SignUpController(UserService userService, EmailService emailService, RoleService roleService) {
+    public SignUpController(UserService userService, EmailService emailService) {
         this.userService = userService;
         this.emailService = emailService;
-        this.roleService = roleService;
     }
 
     @GetMapping
@@ -35,7 +32,6 @@ public class SignUpController {
 
     @PostMapping
     public String signUp(User user){
-        roleService.setRole(user);
         userService.register(user);
         emailService.sendConfirmation(user.getEmail(), user.getToken());
         return "redirect:/signIn";

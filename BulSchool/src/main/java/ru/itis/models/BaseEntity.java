@@ -24,8 +24,6 @@ public class BaseEntity {
     @Column(name = "created")
     private Date created;
 
-    //FIXME: Annotations @CreatedDate and @LastModified don't work!
-
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated")

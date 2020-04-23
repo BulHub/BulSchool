@@ -14,7 +14,7 @@ public class JwtUser implements UserDetails {
     private final String nickname;
     private final String email;
     private final String password;
-    private final Collection<? extends GrantedAuthority> authorities;
+    private final String role;
     private final boolean enabled;
     private final Date lastPasswordResetDate;
 
@@ -29,7 +29,7 @@ public class JwtUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return null;
     }
 
     @JsonIgnore

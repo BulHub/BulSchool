@@ -4,20 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import ru.itis.models.Status;
 import ru.itis.models.User;
 import ru.itis.repositories.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
 public class JdbcTemplateUserRepositoryImpl implements UserRepository {
 
     private static final String SQL_DELETE_BY_EMAIL = "DELETE FROM itis_user where email = ?";
-    private static final String SQL_INSERT = "insert into itis_user(created, status, updated, email, nickname, password, token)" +
-            " VALUES(?, ?, ?, ?, ?, ?, ?) ";
+    private static final String SQL_INSERT = "insert into itis_user(created, status, updated, email, nickname, password, token, role)" +
+            " VALUES(?, ?, ?, ?, ?, ?, ?, ?) ";
     private static final String SQL_SELECT_BY_EMAIL = "select * from itis_user where email = ?";
     private static final String SQL_SELECT_BY_TOKEN = "select * from itis_user where token = ?";
     private static final String SQL_SELECT_ALL = "select * from itis_user";
+    private static final String SQL_UPDATE_STATE = "update itis_user set status = ? where token = ? ";
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -45,11 +48,12 @@ public class JdbcTemplateUserRepositoryImpl implements UserRepository {
 
     @Override
     public User save(User user) {
+        LocalDateTime time = LocalDateTime.now();
         jdbcTemplate.update(
                 SQL_INSERT,
-                user.getCreated(), user.getStatus(), user.getUpdated(),
+                time, user.getStatus().toString(), time,
                 user.getEmail(), user.getNickname(), user.getPassword(),
-                user.getToken()
+                user.getToken(), user.getRole()
         );
         return user;
     }
@@ -61,7 +65,9 @@ public class JdbcTemplateUserRepositoryImpl implements UserRepository {
 
     @Override
     public void update(User entity) {
-        //TODO: Realization
+        jdbcTemplate.update(
+                SQL_UPDATE_STATE,
+                Status.ACTIVE.toString(), entity.getToken());
     }
 
     @Override

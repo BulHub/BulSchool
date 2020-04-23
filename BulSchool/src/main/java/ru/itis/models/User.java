@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -26,13 +25,7 @@ public class User extends BaseEntity implements Serializable {
     private String email;
     private String password;
 
-    //FIXME: For table user_roles doesn't implement method save()
-
-    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "user_roles",
-//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
-    private List<Role> roles;
+    private String role;
 
     @Column(length = 500)
     private String token;

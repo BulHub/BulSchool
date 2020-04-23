@@ -7,7 +7,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.models.Feedback;
+import ru.itis.models.User;
 import ru.itis.services.FeedbackService;
+import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
 import javax.servlet.http.HttpSession;
@@ -16,11 +18,13 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     private final FeedbackService feedbackService;
+    private final UserService userService;
     private final HttpSession session;
 
     @Autowired
-    public MainController(FeedbackService feedbackService, HttpSession session) {
+    public MainController(FeedbackService feedbackService, UserService userService, HttpSession session) {
         this.feedbackService = feedbackService;
+        this.userService = userService;
         this.session = session;
     }
 
@@ -42,6 +46,8 @@ public class MainController {
 
     @PostMapping("/feedback")
     public String feedback(ModelMap modelMap, Feedback feedback){
+        User user = userService.find((String) session.getAttribute("email"));
+        feedback.setOwner_id(user.getId());
         feedbackService.add(feedback);
         Attributes.addSuccessAttributes(modelMap,"Success!");
         return "/feedback";

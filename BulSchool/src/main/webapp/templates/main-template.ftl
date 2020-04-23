@@ -46,7 +46,7 @@
                                                                 href="${rc.getContextPath()}/developers">Developers</a>
                     </li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                                href="${rc.getContextPath()}/feedback">Feedback</a></li>
+                                                                href="${rc.getContextPath()}/feedback">Contact</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
                                                                 href="${rc.getContextPath()}/chat">Chat</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"

@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import ru.itis.models.Role;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -46,10 +45,10 @@ public class JwtTokenProvider {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
-    public String createToken(String username, List<Role> roles) {
+    public String createToken(String username, String role) {
 
         Claims claims = Jwts.claims().setSubject(username);
-        claims.put("roles", getRoleNames(roles));
+        claims.put("roles", getRoleNames(role));
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
@@ -88,12 +87,8 @@ public class JwtTokenProvider {
         }
     }
 
-    private List<String> getRoleNames(List<Role> userRoles) {
+    private List<String> getRoleNames(String userRoles) {
         List<String> result = new ArrayList<>();
-
-        userRoles.forEach(role -> {
-            result.add(role.getName());
-        });
 
         return result;
     }

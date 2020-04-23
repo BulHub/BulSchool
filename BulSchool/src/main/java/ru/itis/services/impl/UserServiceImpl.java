@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(PasswordEncoder passwordEncoder, @Qualifier("hibernateUserRepositoryImpl") UserRepository userRepository) {
+    public UserServiceImpl(PasswordEncoder passwordEncoder, @Qualifier("jdbcTemplateUserRepositoryImpl") UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
     }
@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(hashPassword);
         user.setStatus(Status.INACTIVE);
         user.setToken(generateNewToken());
+        user.setRole("USER");
         add(user);
         log.info("IN register - user: {} successfully registered: ", user);
     }
@@ -82,7 +83,6 @@ public class UserServiceImpl implements UserService {
     public boolean confirm(String token, HttpSession session) {
         User user = findByToken(token);
         if (user != null) {
-            user.setStatus(Status.ACTIVE);
             userRepository.update(user);
             session.setAttribute("email", user.getEmail());
             session.setAttribute("nickname", user.getNickname());
