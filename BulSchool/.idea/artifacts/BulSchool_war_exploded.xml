@@ -28,7 +28,6 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:2.1.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.1.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.9.3" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.26" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
           <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.19.Final" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
@@ -67,6 +66,11 @@
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-envers:5.3.6.Final" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.4" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.11.1" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.11.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

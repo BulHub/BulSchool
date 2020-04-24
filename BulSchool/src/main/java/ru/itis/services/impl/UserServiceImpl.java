@@ -1,6 +1,6 @@
 package ru.itis.services.impl;
 
-import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,11 +19,12 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private static final Logger log = Logger.getLogger(UserServiceImpl.class);
+
 
     @Autowired
     public UserServiceImpl(PasswordEncoder passwordEncoder, @Qualifier("jdbcTemplateUserRepositoryImpl") UserRepository userRepository) {
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
         user.setToken(generateNewToken());
         user.setRole("USER");
         add(user);
-        log.info("IN register - user: {} successfully registered: ", user);
+        log.info("User registered: " + user.getEmail());
     }
 
     private static String generateNewToken() {
@@ -57,6 +58,7 @@ public class UserServiceImpl implements UserService {
     public boolean signIn(AuthenticationRequestDto userForm, ModelMap model, HttpSession session) {
         User user = find(userForm.getEmail());
         if (user == null || !passwordEncoder.matches(userForm.getPassword(), user.getPassword())) {
+            log.info("User with this email and password could not log in: " + userForm.getEmail() + " and " + userForm.getPassword());
             Attributes.addErrorAttributes(model, "Wrong login or password!");
             return false;
         }
@@ -64,16 +66,20 @@ public class UserServiceImpl implements UserService {
             Attributes.addSuccessAttributes(model, "Success!");
             session.setAttribute("email", user.getEmail());
             session.setAttribute("nickname", user.getNickname());
+            log.info("User with this mail went to the site: " + userForm.getEmail());
             return true;
         }
         if (user.getStatus() == Status.INACTIVE){
             Attributes.addErrorAttributes(model, "Your account is inactive since you did not confirm your mail!");
+            log.info("The user with this mail was not logged in as he did not confirm the mail: " + userForm.getEmail());
         }
         if (user.getStatus() == Status.BANNED){
             Attributes.addErrorAttributes(model, "Your account has been banned!");
+            log.info("A user with this mail has not logged in as he is banned: " + userForm.getEmail());
         }
         if (user.getStatus() == Status.DELETED){
             Attributes.addErrorAttributes(model, "Your account has been deleted!");
+            log.info("The user with this mail was not logged in as he was deleted: " + user.getEmail());
         }
         return false;
     }
@@ -86,8 +92,10 @@ public class UserServiceImpl implements UserService {
             userRepository.update(user);
             session.setAttribute("email", user.getEmail());
             session.setAttribute("nickname", user.getNickname());
+            log.info("A user with this mail has confirmed it: " + user.getEmail());
             return true;
         } else {
+            log.info("User attempt to confirm mail failed: " + token);
             return false;
         }
     }

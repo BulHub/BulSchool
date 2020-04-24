@@ -1,11 +1,8 @@
-INSERT into roles(name, created, updated, status) values ('ROLE_USER', localtimestamp , localtimestamp, 'ACTIVE');
-
-INSERT into roles(name, created, updated, status)
-values ('ROLE_ADMIN', localtimestamp, localtimestamp, 'ACTIVE');
-
-CREATE TABLE feedback(
-  ID serial primary key,
-  FirstName varchar(50),
-  Email varchar(100),
-  Message varchar(5000)
+CREATE TABLE LOGS
+(
+  ID SERIAL PRIMARY KEY,
+  DATED   DATE NOT NULL,
+  LOGGER  VARCHAR(50) NOT NULL,
+  LEVEL   VARCHAR(10) NOT NULL,
+  MESSAGE VARCHAR(1000) NOT NULL
 );
