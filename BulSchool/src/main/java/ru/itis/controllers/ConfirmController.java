@@ -18,9 +18,6 @@ public class ConfirmController {
         this.userService = userService;
     }
 
-    //FIXME: method update() doesn't work right because confirm() method doesn't work in one session!
-    //FIXME: also need to look at the correct implementation of user (User.class) relationships and roles (Role.class)
-
     @GetMapping("/{token}")
     public String checkToken(@PathVariable("token") String token, HttpSession session){
         if (userService.confirm(token, session)) {

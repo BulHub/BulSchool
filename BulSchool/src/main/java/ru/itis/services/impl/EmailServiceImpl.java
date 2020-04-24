@@ -1,5 +1,6 @@
 package ru.itis.services.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
@@ -10,12 +11,11 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Service
 @PropertySource("classpath:persistence.properties")
 public class EmailServiceImpl implements EmailService {
+    private static final Logger log = Logger.getLogger(EmailServiceImpl.class);
     private static int point = 0;
     private static Sender[] senders = {
             new Sender("instamendil777@gmail.com", "1234567890246813579A"),
@@ -67,8 +67,9 @@ public class EmailServiceImpl implements EmailService {
             message.setText(textRight + token + "\n" + textWrong + token + "F");
             Transport.send(message);
             point++;
+            log.info("The user with this mail sent a confirmation message: " + toEmail);
         } catch (MessagingException ex) {
-            Logger.getLogger(EmailServiceImpl.class.getName()).log(Level.SEVERE, "Sending message failed!", ex);
+            log.info("The user with this mail failed to send a confirmation message: " + toEmail);
         }
     }
 }

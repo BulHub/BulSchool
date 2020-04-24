@@ -37,6 +37,7 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public void add(Feedback entity) {
+        log.info("A user with this mail has left feedback: " + entity.getEmail());
         feedbackRepository.save(entity);
     }
 }
