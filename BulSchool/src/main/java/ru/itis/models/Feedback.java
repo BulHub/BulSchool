@@ -32,7 +32,7 @@ public class Feedback {
 
     @Override
     public String toString(){
-        return "{ id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + ", email = " + email
+        return "{ firstName = " + firstName + ", lastName = " + lastName + ", email = " + email
                 + ", telephone = " + telephone + ", message = " + message + "}";
     }
 }
