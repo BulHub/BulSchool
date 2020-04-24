@@ -14,8 +14,8 @@ public class JdbcTemplateFeedbackRepositoryImpl implements FeedbackRepository {
 
     private static final String SQL_DELETE_BY_EMAIL = "DELETE FROM feedback where email = ?";
     //language=SQL
-    private static final String SQL_INSERT = "insert into feedback(email, firstname, lastname, message, owner_id, telephone) " +
-            "VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "insert into feedback(email, firstname, lastname, message, owner_id, telephone, processed) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_SELECT_BY_EMAIL = "select * from feedback where email = ?";
     private static final String SQL_SELECT_ALL = "select * from feedback";
 
@@ -48,7 +48,8 @@ public class JdbcTemplateFeedbackRepositoryImpl implements FeedbackRepository {
         jdbcTemplate.update(
                 SQL_INSERT,
                 entity.getEmail(), entity.getFirstName(), entity.getLastName(),
-                entity.getMessage(), entity.getOwner_id(), entity.getTelephone()
+                entity.getMessage(), entity.getOwner_id(), entity.getTelephone(),
+                entity.isProcessed()
         );
         return entity;
     }

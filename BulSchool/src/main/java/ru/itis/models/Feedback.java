@@ -28,4 +28,5 @@ public class Feedback {
     private String message;
 
     private Long owner_id;
+    private boolean processed;
 }

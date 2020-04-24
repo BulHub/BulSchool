@@ -48,6 +48,7 @@ public class MainController {
     public String feedback(ModelMap modelMap, Feedback feedback){
         User user = userService.find((String) session.getAttribute("email"));
         feedback.setOwner_id(user.getId());
+        feedback.setProcessed(false);
         feedbackService.add(feedback);
         Attributes.addSuccessAttributes(modelMap,"Success!");
         return "/feedback";
