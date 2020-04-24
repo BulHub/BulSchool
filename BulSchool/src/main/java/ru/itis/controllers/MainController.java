@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.models.Feedback;
 import ru.itis.models.User;
 import ru.itis.services.FeedbackService;
+import ru.itis.services.TelegramService;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
@@ -19,12 +20,15 @@ public class MainController {
 
     private final FeedbackService feedbackService;
     private final UserService userService;
+    private final TelegramService telegramService;
     private final HttpSession session;
 
     @Autowired
-    public MainController(FeedbackService feedbackService, UserService userService, HttpSession session) {
+    public MainController(FeedbackService feedbackService, UserService userService,
+                          TelegramService telegramService, HttpSession session) {
         this.feedbackService = feedbackService;
         this.userService = userService;
+        this.telegramService = telegramService;
         this.session = session;
     }
 
@@ -50,6 +54,7 @@ public class MainController {
         feedback.setOwner_id(user.getId());
         feedback.setProcessed(false);
         feedbackService.add(feedback);
+        telegramService.sendMessageForFeedback(feedback);
         Attributes.addSuccessAttributes(modelMap,"Success!");
         return "/feedback";
     }

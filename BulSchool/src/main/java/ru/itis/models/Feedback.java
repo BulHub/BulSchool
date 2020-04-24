@@ -29,4 +29,10 @@ public class Feedback {
 
     private Long owner_id;
     private boolean processed;
+
+    @Override
+    public String toString(){
+        return "{ id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + ", email = " + email
+                + ", telephone = " + telephone + ", message = " + message + "}";
+    }
 }

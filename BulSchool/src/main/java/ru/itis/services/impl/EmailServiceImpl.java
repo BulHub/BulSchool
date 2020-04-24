@@ -69,7 +69,7 @@ public class EmailServiceImpl implements EmailService {
             point++;
             log.info("The user with this mail sent a confirmation message: " + toEmail);
         } catch (MessagingException ex) {
-            log.info("The user with this mail failed to send a confirmation message: " + toEmail);
+            log.error("The user with this mail failed to send a confirmation message: " + toEmail);
         }
     }
 }
