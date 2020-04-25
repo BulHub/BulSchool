@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import ru.itis.dto.AuthenticationRequestDto;
+import ru.itis.dto.PasswordDto;
 import ru.itis.models.Status;
 import ru.itis.models.User;
 import ru.itis.repositories.UserRepository;
@@ -86,7 +87,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public boolean confirm(String token, HttpSession session) {
+    public boolean confirm(String token, ModelMap model, HttpSession session) {
         User user = findByToken(token);
         if (user != null) {
             userRepository.update(user);
@@ -97,6 +98,20 @@ public class UserServiceImpl implements UserService {
         } else {
             log.info("User attempt to confirm mail failed: " + token);
             return false;
+        }
+    }
+
+    @Override
+    public void changePassword(PasswordDto passwordDto, ModelMap model, HttpSession session){
+        String email = (String) session.getAttribute("email");
+        User user = find(email);
+        if (!passwordEncoder.matches(passwordDto.getOldPassword(), user.getPassword())){
+            Attributes.addErrorAttributes(model, "Wrong old password!");
+            log.info("A user with this mail does not remember his old password: " + email);
+        }else{
+            updatePassword(passwordEncoder.encode(passwordDto.getNewPassword()), email);
+            Attributes.addSuccessAttributes(model, "Success!");
+            log.info("The password with this mail has changed the password: " + email);
         }
     }
 
@@ -121,12 +136,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(User user) {
+    public void updateStatus(User user) {
         userRepository.update(user);
     }
 
     @Override
     public User findByToken(String token) {
         return userRepository.findByToken(token);
+    }
+
+    @Override
+    public void updatePassword(String password, String email) {
+        userRepository.update(password, email);
     }
 }

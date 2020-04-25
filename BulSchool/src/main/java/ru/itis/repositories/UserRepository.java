@@ -4,4 +4,6 @@ import ru.itis.models.User;
 
 public interface UserRepository extends CrudRepository<Long, User> {
     User findByToken(String token);
+
+    void update(String password, String email);
 }

@@ -37,20 +37,7 @@
                     class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/home">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/courses">Courses<a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/admissions">Admissions<a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/developers">Developers</a>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                                href="${rc.getContextPath()}/feedback">Contact</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                                href="${rc.getContextPath()}/chat">Chat</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar"
-                                                                href="${rc.getContextPath()}/aboutUs">About us</a></li>
+                                                                href="${rc.getContextPath()}/home">Change password</a></li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
@@ -61,7 +48,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item"
                                                                                       role="presentation"
-                                                                                      href="${rc.getContextPath()}/changePassword">Settings </a><a
+                                                                                      href="${rc.getContextPath()}/home">Back </a><a
                                     class="dropdown-item"
                                     role="presentation"
                                     href="${rc.getContextPath()}/logout">Logout </a>

@@ -59,4 +59,9 @@ public class JpaUserRepositoryImpl implements UserRepository {
         q.setParameter("token", token);
         return q.getResultList().stream().findAny().orElse(null);
     }
+
+    @Override
+    public void update(String password, String email) {
+
+    }
 }

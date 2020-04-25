@@ -55,19 +55,16 @@ public class HibernateUserRepositoryImpl implements UserRepository {
         currentSession().update(entity);
     }
 
-//    public void update(String email, Status status){
-//        Query query = currentSession().createQuery("update User set status = :status"+
-//                " where email = :email");
-//        query.setParameter("status", status.toString());
-//        query.setParameter("email", email);
-//        query.executeUpdate();
-//    }
-
     @Override
     public User findByToken(String token) {
         Query<User> q = currentSession().
                 createQuery("from User where token = :token", User.class);
         q.setParameter("token", token);
         return q.list().stream().findAny().orElse(null);
+    }
+
+    @Override
+    public void update(String password, String email) {
+
     }
 }

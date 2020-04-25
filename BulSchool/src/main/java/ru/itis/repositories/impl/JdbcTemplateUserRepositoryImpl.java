@@ -21,6 +21,8 @@ public class JdbcTemplateUserRepositoryImpl implements UserRepository {
     private static final String SQL_SELECT_BY_TOKEN = "select * from itis_user where token = ?";
     private static final String SQL_SELECT_ALL = "select * from itis_user";
     private static final String SQL_UPDATE_STATE = "update itis_user set status = ? where token = ? ";
+    //language=SQL
+    private static final String SQL_UPDATE_PASSWORD = "update itis_user set password = ? where email = ?";
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -77,5 +79,13 @@ public class JdbcTemplateUserRepositoryImpl implements UserRepository {
                 new Object[] { token },
                 new BeanPropertyRowMapper<>(User.class)
         ).stream().findAny().orElse(null);
+    }
+
+    @Override
+    public void update(String password, String email){
+        jdbcTemplate.update(
+                SQL_UPDATE_PASSWORD,
+                password, email
+        );
     }
 }

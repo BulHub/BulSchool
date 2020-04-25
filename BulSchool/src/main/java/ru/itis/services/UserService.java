@@ -2,6 +2,7 @@ package ru.itis.services;
 
 import org.springframework.ui.ModelMap;
 import ru.itis.dto.AuthenticationRequestDto;
+import ru.itis.dto.PasswordDto;
 import ru.itis.models.User;
 
 import javax.servlet.http.HttpSession;
@@ -12,7 +13,7 @@ public interface UserService {
 
     boolean signIn(AuthenticationRequestDto userForm, ModelMap modelMap, HttpSession session);
 
-    boolean confirm(String token, HttpSession session);
+    boolean confirm(String token, ModelMap model, HttpSession session);
 
     List<User> findAll();
 
@@ -22,7 +23,11 @@ public interface UserService {
 
     void add(User user);
 
-    void update(User user);
+    void updateStatus(User user);
 
     User findByToken(String token);
+
+    void updatePassword(String password, String email);
+
+    void changePassword(PasswordDto passwordDto, ModelMap model, HttpSession session);
 }

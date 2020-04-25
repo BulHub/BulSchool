@@ -1,6 +1,7 @@
 package ru.itis.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,8 @@ public class ConfirmController {
     }
 
     @GetMapping("/{token}")
-    public String checkToken(@PathVariable("token") String token, HttpSession session){
-        if (userService.confirm(token, session)) {
+    public String checkToken(@PathVariable("token") String token, ModelMap model, HttpSession session){
+        if (userService.confirm(token, model, session)) {
             return "redirect:/developers";
         }
         return "/signIn";
