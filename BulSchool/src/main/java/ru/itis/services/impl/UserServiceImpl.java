@@ -41,7 +41,6 @@ public class UserServiceImpl implements UserService {
         user.setToken(generateNewToken());
         user.setRole("USER");
         add(user);
-        log.info("User registered: " + user.getEmail());
     }
 
     private static String generateNewToken() {

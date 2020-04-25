@@ -67,8 +67,6 @@
             return false;
         }else {
             let form = document.getElementById("form");
-            swal("Good job!", "Are you registered!", "success");
-            swal("Good job!", "A confirmation email will be sent to your email!", "success");
             form.submit();
         }
     }
