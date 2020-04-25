@@ -37,7 +37,7 @@
                     class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link"
-                                                                href="${rc.getContextPath()}/home">Change password</a></li>
+                                                                href="${rc.getContextPath()}/changePassword">Change password</a></li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"

@@ -8,7 +8,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(
-        urlPatterns = {"/settings/*","/chat", "/feedback", "/developers", "/profile", "/"}
+        urlPatterns = {"/home", "/courses", "/admissions", "/chat", "/feedback", "/developers", "/aboutUs", "/",
+        "/logout", "/changePassword"}
 )
 public class MainFilter implements Filter {
     @Override
