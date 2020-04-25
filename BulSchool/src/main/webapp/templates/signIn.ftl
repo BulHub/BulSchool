@@ -14,6 +14,7 @@
         function funOnLoad() {
             swal('${title}', '${message}', '${category}');
         }
+
         window.onload = funOnLoad;
     </script>
 </head>
@@ -23,14 +24,18 @@
     <form method="post" autocomplete="off" id="form">
         <h2 class="sr-only">Login Form</h2>
         <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-        <div class="form-group"><input style="color:yellow" class="form-control" type="email" name="email" id="email" placeholder="Email" required="required" max="30"></div>
-        <div class="form-group"><input style="color: yellow" class="form-control" type="password" name="password" id="password" placeholder="Password" required="required"
-        min="6" max="30">
+        <div class="form-group"><input style="color:yellow" class="form-control" type="email" name="email" id="email"
+                                       placeholder="Email" required="required" max="30"></div>
+        <div class="form-group"><input style="color: yellow" class="form-control" type="password" name="password"
+                                       id="password" placeholder="Password" required="required"
+                                       min="6" max="30">
         </div>
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit" onclick="return validateForm()">Log In</button>
         </div>
-        <a href="${rc.getContextPath()}/signUp" class="forgot">You aren't registered? Register here&nbsp;<br></a></form>
+        <a href="${rc.getContextPath()}/signUp" class="forgot">You aren't registered? Register here&nbsp;<br></a>
+        <a onclick="return forgotPassword()" class="forgot">Forgot password&nbsp;<br></a>
+    </form>
 </div>
 <script>
     function validateForm() {
@@ -51,6 +56,25 @@
             let form = document.getElementById("form");
             form.submit();
         }
+    }
+</script>
+<script>
+    function forgotPassword() {
+        swal("Your email:", {
+            content: "input",
+            buttons: true,
+        }).then((email1) => {
+            let email = email1;
+            let error = '';
+            let email_regexp = /[0-9a-zа-я_A-ZА-Я]+@[0-9a-zа-я_A-ZА-Я^.]+\.[a-zа-яА-ЯA-Z]{2,4}/i;
+            if (!email_regexp.test(email)) {
+                error += 'Email is entered incorrectly! \n';
+            }
+            if (error !== '') {
+                swal("Oops", error, "error");
+                return false;
+            }
+            });
     }
 </script>
 
