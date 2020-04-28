@@ -3,11 +3,14 @@ package ru.itis.services.impl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.client.RestTemplate;
 import ru.itis.dto.AuthenticationRequestDto;
+import ru.itis.dto.CaptchaResponseDto;
 import ru.itis.dto.PasswordDto;
 import ru.itis.models.Status;
 import ru.itis.models.User;
@@ -16,25 +19,33 @@ import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
+
+    @Value("${recaptcha.secret}")
+    private String secret;
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RestTemplate restTemplate;
     private static final Logger log = Logger.getLogger(UserServiceImpl.class);
 
 
     @Autowired
-    public UserServiceImpl(PasswordEncoder passwordEncoder, @Qualifier("jdbcTemplateUserRepositoryImpl") UserRepository userRepository) {
+    public UserServiceImpl(PasswordEncoder passwordEncoder, @Qualifier("jdbcTemplateUserRepositoryImpl") UserRepository userRepository, RestTemplate restTemplate) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
+        this.restTemplate = restTemplate;
     }
 
     @Override
-    public void register(User user) {
+    public void register(User user, String captchaResponse) {
         String hashPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
         user.setStatus(Status.INACTIVE);
@@ -55,7 +66,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean signIn(AuthenticationRequestDto userForm, ModelMap model, HttpSession session) {
+    public boolean signIn(AuthenticationRequestDto userForm, ModelMap model, HttpSession session, String captchaResponse) {
+        String url = String.format(CAPTCHA_URL, secret, captchaResponse);
+        CaptchaResponseDto response = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
+        if (!Objects.requireNonNull(response).isSuccess()) {
+            Attributes.addErrorAttributes(model, "Fill captcha!");
+            return false;
+        }
         User user = find(userForm.getEmail());
         if (user == null || !passwordEncoder.matches(userForm.getPassword(), user.getPassword())) {
             log.info("User with this email and password could not log in: " + userForm.getEmail() + " and " + userForm.getPassword());

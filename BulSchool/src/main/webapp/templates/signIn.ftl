@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${rc.getContextPath()}/css/entrance.css">
     <link rel="icon" type="image/ico" href="https://itvdn.com/Content/img/common/favicon.ico">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript">
         function funOnLoad() {
             swal('${title}', '${message}', '${category}');
@@ -31,6 +32,9 @@
                                        min="6" max="30">
         </div>
         <div class="form-group">
+            <p>
+            <div data-theme="dark" style="transform:scale(0.8); transform-origin:0;" class="g-recaptcha"
+                 data-sitekey="6LcIde8UAAAAAAIbECHdzJ1GhxNKZDyqAXCP95zy"></div></p>
             <button class="btn btn-primary btn-block" type="submit" onclick="return validateForm()">Log In</button>
         </div>
         <a href="${rc.getContextPath()}/signUp" class="forgot">You aren't registered? Register here&nbsp;<br></a>

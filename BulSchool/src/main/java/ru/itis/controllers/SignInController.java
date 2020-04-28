@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
@@ -33,8 +34,9 @@ public class SignInController {
     }
 
     @PostMapping
-    public String signIn(AuthenticationRequestDto authenticationRequestDto, ModelMap modelMap, HttpSession session) {
-        if (userService.signIn(authenticationRequestDto, modelMap, session)) {
+    public String signIn(AuthenticationRequestDto authenticationRequestDto, ModelMap modelMap, HttpSession session,
+                         @RequestParam("g-recaptcha-response") String captchaResponse) {
+        if (userService.signIn(authenticationRequestDto, modelMap, session, captchaResponse)) {
             return "developers";
         }else{
             return "/signIn";
