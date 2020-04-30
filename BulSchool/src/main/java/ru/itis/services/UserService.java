@@ -1,6 +1,6 @@
 package ru.itis.services;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.dto.PasswordDto;
@@ -9,7 +9,7 @@ import ru.itis.models.User;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-@Component
+@Service
 public interface UserService {
     void register(User user, String captchaResponse);
 

@@ -1,9 +1,11 @@
 package ru.itis.services;
 
+import org.springframework.stereotype.Service;
 import ru.itis.models.Message;
 
 import java.util.List;
 
+@Service
 public interface ChatService {
     List<Message> findAll();
 
