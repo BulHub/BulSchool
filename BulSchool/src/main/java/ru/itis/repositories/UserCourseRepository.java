@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface UserCourseRepository extends JpaRepository<UserCourse, Long> {
 
-    Optional<UserCourse> findByCourseId(Long courseId);
+    UserCourse findByCourseId(Long courseId);
 
-    Optional<UserCourse> findByUserId(Long userId);
+    UserCourse findByUserId(Long userId);
 }

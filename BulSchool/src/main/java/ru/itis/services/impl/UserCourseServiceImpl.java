@@ -25,12 +25,12 @@ public class UserCourseServiceImpl implements UserCourseService {
     }
 
     @Override
-    public Optional<UserCourse> findByUserId(Long userId) {
+    public UserCourse findByUserId(Long userId) {
         return userCourseRepository.findByUserId(userId);
     }
 
     @Override
-    public Optional<UserCourse> findByCourseId(Long courseId) {
+    public UserCourse findByCourseId(Long courseId) {
         return userCourseRepository.findByCourseId(courseId);
     }
 

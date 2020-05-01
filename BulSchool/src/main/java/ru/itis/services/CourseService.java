@@ -1,16 +1,19 @@
 package ru.itis.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import ru.itis.models.Course;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface CourseService {
+    void checkRegistration(Model model, String courseName, HttpSession session);
+
     List<Course> findAll();
 
-    Optional<Course> find(Long id);
+    Course findByName(String name);
 
     void delete(Course entity);
 

@@ -96,7 +96,10 @@
                         </ul>
 
                         <p>
-                            <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Enroll</a>
+                            <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">${something}</a>
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Show all registered users</a>
                         </p>
 
                     </div>
