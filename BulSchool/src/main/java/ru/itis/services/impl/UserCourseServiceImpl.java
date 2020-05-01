@@ -25,14 +25,10 @@ public class UserCourseServiceImpl implements UserCourseService {
     }
 
     @Override
-    public UserCourse findByUserId(Long userId) {
-        return userCourseRepository.findByUserId(userId);
+    public UserCourse findByCourseIdAndUserId(Long courseId, Long userId) {
+        return userCourseRepository.findByCourseIdAndUserId(courseId, userId);
     }
 
-    @Override
-    public UserCourse findByCourseId(Long courseId) {
-        return userCourseRepository.findByCourseId(courseId);
-    }
 
     @Override
     public void delete(UserCourse entity) {

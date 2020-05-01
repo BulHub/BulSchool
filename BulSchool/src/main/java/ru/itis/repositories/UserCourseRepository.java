@@ -8,8 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface UserCourseRepository extends JpaRepository<UserCourse, Long> {
-
-    UserCourse findByCourseId(Long courseId);
-
-    UserCourse findByUserId(Long userId);
+    UserCourse findByCourseIdAndUserId(Long courseId, Long userId);
 }

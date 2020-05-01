@@ -37,16 +37,26 @@ public class CourseServiceImpl implements CourseService {
         String email = (String) session.getAttribute("email");
         User user = userRepository.find(email);
         Course course = courseRepository.findByName(courseName);
-        UserCourse userCourse = userCourseRepository.findByUserId(user.getId());
-        if (userCourse != null){
-            if (userCourse.getCourseId().equals(course.getId())){
-                model.addAttribute("something", "Enter the course");
-            }else{
-                model.addAttribute("something", "Sign up");
-            }
-        }else{
+        UserCourse userCourse = userCourseRepository.findByCourseIdAndUserId(course.getId(), user.getId());
+        if (userCourse != null) {
+            model.addAttribute("something", "Enter the course");
+            session.setAttribute("check", true);
+        } else {
             model.addAttribute("something", "Sign up");
+            session.setAttribute("check", false);
         }
+    }
+
+    @Override
+    public void registration(HttpSession session, String courseName) {
+        String email = (String) session.getAttribute("email");
+        User user = userRepository.find(email);
+        Course course = courseRepository.findByName(courseName);
+        userCourseRepository.save(UserCourse
+                .builder()
+                .userId(user.getId())
+                .courseId(course.getId())
+                .build());
     }
 
     @Override

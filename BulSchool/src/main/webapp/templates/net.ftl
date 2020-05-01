@@ -95,9 +95,12 @@
                             <li>Sed necessitatibus itaque </li>
                         </ul>
 
-                        <p>
-                            <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">${something}</a>
-                        </p>
+                        <form name="form" method="post">
+                            <p>
+
+                                <button type="submit" onclick="return f()" class="btn btn-primary rounded-0 btn-lg px-5">${something}</button>
+                            </p>
+                        </form>
                         <p>
                             <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Show all registered users</a>
                         </p>
@@ -106,6 +109,13 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function f() {
+                let form = document.getElementById("form");
+                form.submit();
+            }
+        </script>
 
         <div class="section-bg style-1" style="background-image: url('.//templates/images/hero_1.jpg');">
             <div class="container">

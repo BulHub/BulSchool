@@ -11,6 +11,8 @@ import java.util.List;
 public interface CourseService {
     void checkRegistration(Model model, String courseName, HttpSession session);
 
+    void registration(HttpSession session, String courseName);
+
     List<Course> findAll();
 
     Course findByName(String name);

@@ -11,9 +11,7 @@ import java.util.Optional;
 public interface UserCourseService {
     List<UserCourse> findAll();
 
-    UserCourse findByUserId(Long userId);
-
-    UserCourse findByCourseId(Long courseId);
+    UserCourse findByCourseIdAndUserId(Long courseId, Long userId);
 
     void delete(UserCourse entity);
 
