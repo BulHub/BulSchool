@@ -68,14 +68,14 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                                <a href="${rc.getContextPath()}/course/java"><img src="${rc.getContextPath()}/templates/images/course_1.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>Java</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>Java Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                                <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                                <p><a href="${rc.getContextPath()}/course/java" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
                         </div>
                     </div>
@@ -83,14 +83,14 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_2.jpg" alt="Image" class="img-fluid"></a>
+                                <a href="${rc.getContextPath()}/course/python"><img src="${rc.getContextPath()}/templates/images/course_2.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>Python</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>Python Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                                <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                                <p><a href="${rc.getContextPath()}/course/python" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
                         </div>
                     </div>
@@ -100,10 +100,10 @@
                             <figure class="thumnail">
                                 <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_3.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>.NET</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>.NET Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
                                 <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
@@ -116,10 +116,10 @@
                             <figure class="thumnail">
                                 <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_4.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>iOS</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>iOS Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
                                 <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
@@ -131,10 +131,10 @@
                             <figure class="thumnail">
                                 <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_5.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>Database</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>Database Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
                                 <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
@@ -144,14 +144,14 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                <a href="${rc.getContextPath()}/course-single"><img src="${rc.getContextPath()}/templates/images/course_6.jpg" alt="Image" class="img-fluid"></a>
+                                <a href="${rc.getContextPath()}/course/php"><img src="${rc.getContextPath()}/templates/images/course_6.jpg" alt="Image" class="img-fluid"></a>
                                 <div class="price">$99.00</div>
-                                <div class="category"><h3>Mobile Application</h3></div>
+                                <div class="category"><h3>PHP</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
-                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                <h2>PHP Junior Developer</h2>
                                 <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                                <p><a href="${rc.getContextPath()}/course-single" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                                <p><a href="${rc.getContextPath()}/course/php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                             </div>
                         </div>
                     </div>

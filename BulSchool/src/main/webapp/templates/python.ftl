@@ -47,11 +47,11 @@
         <div class="py-2 bg-light">
         </div>
 
-        <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('.//templates/images/bg_1.jpg')">
+        <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('..//templates/images/bg_1.jpg')">
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col-lg-7">
-                        <h2 class="mb-0">How To Create Mobile Apps Using Ionic</h2>
+                        <h2 class="mb-0">Python Junior Developer</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                     </div>
                 </div>

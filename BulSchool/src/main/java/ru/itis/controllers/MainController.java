@@ -97,7 +97,7 @@ public class MainController {
         Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
         String nickname = (String) session.getAttribute("nickname");
         model.addAttribute("nickname", nickname);
-        return "course-single";
+        return "/course-single";
     }
 
     @GetMapping("/aboutUs")
