@@ -30,4 +30,22 @@ public class CourseController {
         Before.startPage(modelMap, session, model);
         return "python";
     }
+
+    @GetMapping("/database")
+    public String getCourseDatabase(ModelMap modelMap, HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
+        return "database";
+    }
+
+    @GetMapping("/iOs")
+    public String getCourseIOs(ModelMap modelMap, HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
+        return "iOS";
+    }
+
+    @GetMapping("/net")
+    public String getCourseNET(ModelMap modelMap, HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
+        return "net";
+    }
 }
