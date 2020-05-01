@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.itis.dto.AuthenticationRequestDto;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
+import ru.itis.utils.Before;
 
 import javax.servlet.http.HttpSession;
 import java.util.logging.LogManager;
@@ -45,9 +46,7 @@ public class SignInController {
 
     @GetMapping("/change")
     public String getChangePassword(ModelMap modelMap, HttpSession session, Model model){
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+        Before.startPage(modelMap, session, model);
         return "change";
     }
 }

@@ -12,6 +12,7 @@ import ru.itis.services.FeedbackService;
 import ru.itis.services.TelegramService;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
+import ru.itis.utils.Before;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,35 +22,29 @@ public class MainController {
     private final FeedbackService feedbackService;
     private final UserService userService;
     private final TelegramService telegramService;
-    private final HttpSession session;
 
     @Autowired
     public MainController(FeedbackService feedbackService, UserService userService,
-                          TelegramService telegramService, HttpSession session) {
+                          TelegramService telegramService) {
         this.feedbackService = feedbackService;
         this.userService = userService;
         this.telegramService = telegramService;
-        this.session = session;
     }
 
     @GetMapping("/developers")
-    public String getDevelopers(ModelMap modelMap, Model model) {
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getDevelopers(ModelMap modelMap,HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
         return "developers";
     }
 
     @GetMapping("/feedback")
-    public String getFeedback(ModelMap modelMap, Model model) {
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getFeedback(ModelMap modelMap,HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
         return "feedback";
     }
 
     @PostMapping("/feedback")
-    public String feedback(ModelMap modelMap, Feedback feedback){
+    public String feedback(ModelMap modelMap, HttpSession session, Feedback feedback){
         User user = userService.find((String) session.getAttribute("email"));
         feedback.setOwner_id(user.getId());
         feedback.setProcessed(false);
@@ -60,7 +55,7 @@ public class MainController {
     }
 
     @GetMapping("/chat")
-    public String getChat(ModelMap modelMap, Model model) {
+    public String getChat(ModelMap modelMap,HttpSession session, Model model) {
         Attributes.addSuccessAttributes(modelMap, "Success!");
         String email = (String) session.getAttribute("email");
         String nickname = (String) session.getAttribute("nickname");
@@ -70,49 +65,39 @@ public class MainController {
     }
 
     @GetMapping("/logout")
-    public String getExit() {
+    public String getExit(HttpSession session) {
         session.removeAttribute("email");
         session.removeAttribute("nickname");
         return "redirect:/signIn";
     }
 
     @GetMapping("/home")
-    public String getHome(ModelMap modelMap, Model model) {
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getHome(ModelMap modelMap,HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
         return "home";
     }
 
     @GetMapping("/courses")
-    public String getCourses(ModelMap modelMap, Model model) {
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getCourses(ModelMap modelMap,HttpSession session, Model model) {
+        Before.startPage(modelMap, session, model);
         return "courses";
     }
 
     @GetMapping("/course-single")
-    public String getCourse(ModelMap modelMap, Model model){
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getCourse(ModelMap modelMap,HttpSession session, Model model){
+        Before.startPage(modelMap, session, model);
         return "/course-single";
     }
 
     @GetMapping("/aboutUs")
-    public String getAboutUs(ModelMap modelMap, Model model){
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getAboutUs(ModelMap modelMap,HttpSession session, Model model){
+        Before.startPage(modelMap, session, model);
         return "about";
     }
 
     @GetMapping("/admissions")
-    public String getAdmissions(ModelMap modelMap, Model model){
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getAdmissions(ModelMap modelMap,HttpSession session, Model model){
+        Before.startPage(modelMap, session, model);
         return "admissions";
     }
 }

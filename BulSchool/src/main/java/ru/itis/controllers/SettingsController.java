@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.dto.PasswordDto;
 import ru.itis.services.UserService;
 import ru.itis.utils.Attributes;
+import ru.itis.utils.Before;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,19 +17,15 @@ import javax.servlet.http.HttpSession;
 public class SettingsController {
 
     private final UserService userService;
-    private final HttpSession session;
 
     @Autowired
-    public SettingsController(UserService userService, HttpSession session) {
+    public SettingsController(UserService userService) {
         this.userService = userService;
-        this.session = session;
     }
 
     @GetMapping("/changePassword")
-    public String getChangePassword(ModelMap modelMap, Model model){
-        Attributes.addSuccessAttributes(modelMap,"Successfully visited the page");
-        String nickname = (String) session.getAttribute("nickname");
-        model.addAttribute("nickname", nickname);
+    public String getChangePassword(ModelMap modelMap,HttpSession session, Model model){
+        Before.startPage(modelMap, session, model);
         return "changePassword";
     }
 
